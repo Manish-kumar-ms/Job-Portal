@@ -9,6 +9,11 @@ import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
 
 const persistor = persistStore(store);
+import axios from "axios";
+
+// sent cookies with every request
+axios.defaults.withCredentials = true;
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
