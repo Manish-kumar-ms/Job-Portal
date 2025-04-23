@@ -117,10 +117,14 @@ export const updateProfile = async (req, res) => {
         
         const file = req.file;
         // cloudinary ayega idhar
-        const fileUri = getDataUri(file);
+        let cloudResponse;
+        if(file){
+            const fileUri = getDataUri(file);
        
-        const cloudResponse = await cloudinary.uploader.upload(fileUri.content,{format: 'pdf', resource_type: 'raw',});
-
+            cloudResponse = await cloudinary.uploader.upload(fileUri.content,{format: 'pdf', resource_type: 'raw',});
+    
+        }
+       
        
 
 
